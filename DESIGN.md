@@ -13,11 +13,11 @@ Menu Sketch:
 ----------------------------------------
 
 Class list:
-Main
-Media
-Movies
-Series
-Catalog
-Profile
-Play
-User
+Main,
+Media,
+Movies,
+Series,
+Catalog,
+Profile,
+Play,
+User;
