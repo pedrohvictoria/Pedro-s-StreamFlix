@@ -39,16 +39,16 @@ menu 2.0
 .
 menu 3.0
 
-     Welcome to
-     StreamFlix"
+         Welcome to
+         StreamFlix"
 
-│ 1- Movies       │
-│ 2- Series       │
-│ 3- Full Catalog │
-│ 4- My List      │
-│ 5- Profile      │
-│ 6- Settings     │
-│ 0- Exit         │
+    │ 1- Movies       │
+    │ 2- Series       │
+    │ 3- Full Catalog │
+    │ 4- My List      │
+    │ 5- Profile      │
+    │ 6- Settings     │
+    │ 0- Exit         │
 
 
 -Abstract Class: Media
