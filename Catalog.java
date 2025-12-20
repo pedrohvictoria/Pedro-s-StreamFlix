@@ -1,5 +1,4 @@
 //package StreamFlixUcc;
-package StreamFlix;
 
 import java.util.ArrayList;
 
@@ -28,3 +27,4 @@ public class Catalog {
         }
     }
 }
+
