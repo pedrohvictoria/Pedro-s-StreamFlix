@@ -20,3 +20,14 @@ Core Features:
 Bonus Ideas:
 - star reviews
 - genre searching
+
+Technologies Used:
+- Java
+- Eclipse IDE
+- GitHub
+
+How to Run:
+1. Open the project in Eclipse or another Java IDE
+2. Make sure all files are in the correct package
+3. Run the `StreamFlix.java` file
+4. Use the menu options displayed in the console
