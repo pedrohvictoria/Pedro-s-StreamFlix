@@ -1,5 +1,4 @@
 //package StreamFlixUcc; I dont know why but i had to create a package for it to run on eclipse
-package StreamFlix;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -49,8 +48,7 @@ public class StreamFlix {
                     break;
 
                 case 3:
-                    catalog.displayCatalog();
-                    playFirstItem();
+                    fullCatalogMenu(input);
                     break;
 
                 case 4:
@@ -72,13 +70,13 @@ public class StreamFlix {
 
         input.close();
     }
-    
+
     private static void moviesMenu(Scanner input) {
         System.out.println("\n--- Movies ---");
 
         for (Media m : catalog.getMediaList()) {
             if (m instanceof Movie) {
-                System.out.println(m);
+                System.out.println(m.getDetails());
             }
         }
 
@@ -109,7 +107,7 @@ public class StreamFlix {
 
         for (Media m : catalog.getMediaList()) {
             if (m instanceof Series) {
-                System.out.println(m);
+                System.out.println(m.getDetails());
             }
         }
 
@@ -135,15 +133,44 @@ public class StreamFlix {
         }
     }
 
-    private static void playFirstItem() {
-        if (!catalog.getMediaList().isEmpty()) {
-            Playable p = (Playable) catalog.getMediaList().get(0);
+    private static void fullCatalogMenu(Scanner input) {
+        System.out.println("\n--- Full Catalog ---");
+
+        ArrayList<Media> list = catalog.getMediaList();
+        if (list.isEmpty()) {
+            System.out.println("The catalog is empty.");
+            return;
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println((i + 1) + "- " + list.get(i).getDetails());
+        }
+
+        System.out.println("0- Back");
+        System.out.print("Select a number to play: ");
+
+        int choice = input.nextInt();
+        input.nextLine();
+
+        if (choice > 0 && choice <= list.size()) {
+            Playable p = (Playable) list.get(choice - 1);
             p.play();
+        } else if (choice != 0) {
+            System.out.println("Invalid selection.");
         }
     }
 
     private static void showMyList() {
-        System.out.println("My List is empty.");
+        System.out.println("\n--- My List ---");
+
+        if (catalog.getMediaList().isEmpty()) {
+            System.out.println("My List is empty.");
+            return;
+        }
+
+        for (Media m : catalog.getMediaList()) {
+            System.out.println(m.getDetails());
+        }
     }
 
     private static void settings() {
