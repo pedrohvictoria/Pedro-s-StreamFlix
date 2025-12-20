@@ -8,18 +8,21 @@ Pedro Victoria
 Choosen Theme: 
 StreamFlix - Option A
 
-Core Features: 
-- Menu Interface
-- Available Movies/Series
-- "My list" option
-- movie ranking
-- Search Movies by Name
-- input validation
-- time watched tracker
+Core Features:
+- Menu interface
+- Available movies and series
+- "My List" option
+- Input validation
+- Profile viewing
+- Full catalog display
+- Basic playback simulation
 
-Bonus Ideas:
-- star reviews
-- genre searching
+Bonus Ideas / Future Improvements:
+- Movie ranking
+- Search movies by name
+- Time watched tracker
+- Star reviews
+- Genre searching
 
 Technologies Used:
 - Java
