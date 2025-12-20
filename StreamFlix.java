@@ -1,4 +1,5 @@
 //package StreamFlixUcc; I dont know why but i had to create a package for it to run on eclipse
+package StreamFlix;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -40,13 +41,13 @@ public class StreamFlix {
 
             switch (menuOption) {
                 case 1:
-                	WIPMOVIES();
+                    moviesMenu(input);
                     break;
-                    
+
                 case 2:
-                	WIPSERIES();
-                	break;
-                	
+                    seriesMenu(input);
+                    break;
+
                 case 3:
                     catalog.displayCatalog();
                     playFirstItem();
@@ -61,7 +62,7 @@ public class StreamFlix {
                     break;
 
                 case 6:
-                	settings();
+                    settings();
                     break;
 
                 default:
@@ -71,6 +72,68 @@ public class StreamFlix {
 
         input.close();
     }
+    
+    private static void moviesMenu(Scanner input) {
+        System.out.println("\n--- Movies ---");
+
+        for (Media m : catalog.getMediaList()) {
+            if (m instanceof Movie) {
+                System.out.println(m);
+            }
+        }
+
+        System.out.println("\n1- Add Movie");
+        System.out.println("0- Back");
+        System.out.print("Choose an option: ");
+
+        int choice = input.nextInt();
+        input.nextLine();
+
+        if (choice == 1) {
+            System.out.print("Movie name: ");
+            String name = input.nextLine();
+
+            System.out.print("Genre: ");
+            String genre = input.nextLine();
+
+            System.out.print("Minutes: ");
+            int minutes = input.nextInt();
+
+            catalog.addMedia(new Movie(name, genre, minutes));
+            System.out.println("Movie added successfully.");
+        }
+    }
+
+    private static void seriesMenu(Scanner input) {
+        System.out.println("\n--- Series ---");
+
+        for (Media m : catalog.getMediaList()) {
+            if (m instanceof Series) {
+                System.out.println(m);
+            }
+        }
+
+        System.out.println("\n1- Add Series");
+        System.out.println("0- Back");
+        System.out.print("Choose an option: ");
+
+        int choice = input.nextInt();
+        input.nextLine();
+
+        if (choice == 1) {
+            System.out.print("Series name: ");
+            String name = input.nextLine();
+
+            System.out.print("Genre: ");
+            String genre = input.nextLine();
+
+            System.out.print("Episodes: ");
+            int episodes = input.nextInt();
+
+            catalog.addMedia(new Series(name, genre, episodes));
+            System.out.println("Series added successfully.");
+        }
+    }
 
     private static void playFirstItem() {
         if (!catalog.getMediaList().isEmpty()) {
@@ -79,18 +142,10 @@ public class StreamFlix {
         }
     }
 
-    private static void WIPMOVIES() {
-        System.out.println("Working on it, come back later");
-    }
-    
-    private static void WIPSERIES() {
-        System.out.println("Working on it, come back later");
-    }
-    
     private static void showMyList() {
         System.out.println("My List is empty.");
     }
-    
+
     private static void settings() {
         System.out.println("Working on it, come back later");
     }
