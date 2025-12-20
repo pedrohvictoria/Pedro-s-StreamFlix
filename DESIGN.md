@@ -1,46 +1,38 @@
 Menu Sketch:
 
----------------------------------------
-              Welcome to
-              StreamFlix
----------------------------------------
-            │ 1- Movies │
-            │ 2- Series │
-         │ 3- Full Catalog │
-           │ 4- My List │
-            │ 5- Profile │
-           │ 6- Settings │
-----------------------------------------
+          Welcome to
+          StreamFlix
+        │ 1- Movies │
+        │ 2- Series │
+     │ 3- Full Catalog │
+       │ 4- My List │
+        │ 5- Profile │
+       │ 6- Settings │
 
 Class list:
-Main,
-Media,
-Movies,
-Series,
-Catalog,
-Profile,
-Play,
-User;
-.
+Main, Media, Movie, Series, Catalog, Profile, Playable, User.
 
-menu 2.0
+-------------------------------------
 
-              Welcome to
-              StreamFlix
+Menu 2.0:
 
-         │    1- Movies    |
-         │    2- Series    │
-         │ 3- Full Catalog │
-         │    4- My List   │
-         │    5- Profile   │
-         │   6- Settings   │
-         │    0- Exit      │
+          Welcome to
+          StreamFlix
 
-.
-menu 3.0
+     │    1- Movies    │
+     │    2- Series    │
+     │ 3- Full Catalog │
+     │    4- My List   │
+     │    5- Profile   │
+     │   6- Settings   │
+     │    0- Exit      │
 
-         Welcome to
-         StreamFlix"
+-------------------------------------
+
+Menu 3.0 (Final Version):
+
+     Welcome to
+     StreamFlix
 
     │ 1- Movies       │
     │ 2- Series       │
@@ -50,19 +42,46 @@ menu 3.0
     │ 6- Settings     │
     │ 0- Exit         │
 
+-------------------------------------
 
--Abstract Class: Media
-Has an abstract method called getDetails();
-Two classes extenbding media: Movie, Series
-Both classes Override getDetails()
+Abstract Class:
+- Media
+- Media contains common attributes such as title and genre
+- Media defines an abstract method called getDetails()
+- Media also defines the general structure shared by all media types
 
--Interface: Playable
-Defines mehod play()
-Both Movie and Series implement Playable
+Classes Extending Media:
+- Movie
+- Series
+- Both classes extend Media
+- Both classes override the getDetails() method to return their own details
 
--Polymorphism: The Catalog class stores all content in an ArrayList<Media>
-also used ehn a content is played from the menu, a Media object is treated as a Playable object and the play() method is called
+-------------------------------------
 
--Arrays: ArrayList<Media> inside the Catalog class to store all movies and series.
-The “My List” menu option is included as part of the structure but is still getting worked on
-.
+Interface:
+- Playable
+- Defines the method play()
+- Both Movie and Series implement the Playable interface
+- This allows different media types to be played using the same method call
+
+-------------------------------------
+
+Polymorphism:
+- The Catalog class stores all content in an ArrayList<Media>
+- Movie and Series objects are treated as Media objects when stored
+- When content is played from the menu, a Media object is treated as a Playable object
+- The play() method that runs depends on the actual object type (Movie or Series)
+
+-------------------------------------
+
+Arrays / ArrayLists:
+- An ArrayList is used inside the Catalog class to store all movies and series
+- The list allows media to be added dynamically while the program is running
+- The My List menu option uses the same list structure to display stored media
+
+-------------------------------------
+
+Design Notes:
+- The project is structured to focus on clean organization and OOP principles
+- The menu is intentionally simple to make the program easy to use and test
+- Some features are placeholders and are included to show planned expansion
